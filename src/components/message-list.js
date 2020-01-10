@@ -51,16 +51,31 @@ class MessageList extends Component {
       >
         {isApiStarted ? 'Stop Messages' : 'Start Messages'}
       </Button>
-    )
+    );
   }
+
+  clearButton() {
+
+    return (
+      <Button 
+        id="clear-messages-button" 
+        variant="contained" 
+        onClick={() => { console.log('click!'); }}>
+          Clear
+      </Button>
+    );
+  }
+
+
 
   render() {
     return (
       <>
         {this.renderButton()}
-        <MessageColumn />
-        <MessageColumn />
-        <MessageColumn />
+        {this.clearButton()}
+        <MessageColumn columnID="type1"/>
+        <MessageColumn columnID="type2"/>
+        <MessageColumn columnID="type3"/>
       </>
     );
   }

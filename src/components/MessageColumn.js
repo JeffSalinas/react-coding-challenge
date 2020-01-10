@@ -1,9 +1,9 @@
 import React from 'react';
 
-const MessagColumn = (props) => {
+const MessagColumn = ({ columnID }) => {
 
   return (
-    <div>
+    <div id={ columnID }>
       hello!
     </div>
   );
