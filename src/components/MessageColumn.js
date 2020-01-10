@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import ThemeContext from '../ThemeContext';
 
-const MessagColumn = ({ columnID }) => {
+const MessageColumn = ({ columnID }) => {
+  const { classes } = useContext(ThemeContext);
 
   return (
-    <div id={ columnID }>
+    <div id={columnID} className={classes.columnContainer}>
       hello!
     </div>
   );
 };
 
-export default MessagColumn;
+export default MessageColumn;

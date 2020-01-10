@@ -73,9 +73,11 @@ class MessageList extends Component {
       <>
         {this.renderButton()}
         {this.clearButton()}
-        <MessageColumn columnID="type1"/>
-        <MessageColumn columnID="type2"/>
-        <MessageColumn columnID="type3"/>
+        <div>  
+          <MessageColumn columnID="type1"/>
+          <MessageColumn columnID="type2"/>
+          <MessageColumn columnID="type3"/>
+        </div>
       </>
     );
   }
