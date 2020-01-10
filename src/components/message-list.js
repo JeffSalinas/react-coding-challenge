@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
-import Button from '@material-ui/core/Button'
-import Api from '../api'
+import React, { Component } from 'react';
+import Button from '@material-ui/core/Button';
+import Api from '../api';
+import MessageColumn from './MessageColumn';
 
 class MessageList extends Component {
   constructor(...args) {
@@ -37,6 +38,7 @@ class MessageList extends Component {
     const isApiStarted = this.api.isStarted()
     return (
       <Button
+        id="start-stop-messages-button"
         variant="contained"
         onClick={() => {
           if (isApiStarted) {
@@ -54,11 +56,14 @@ class MessageList extends Component {
 
   render() {
     return (
-      <div>
+      <>
         {this.renderButton()}
-      </div>
-    )
+        <MessageColumn />
+        <MessageColumn />
+        <MessageColumn />
+      </>
+    );
   }
-}
+};
 
 export default MessageList
