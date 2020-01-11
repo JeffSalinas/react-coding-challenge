@@ -32,10 +32,7 @@ class MessageList extends Component {
         message,
       ],
       orderIn: this.state.orderIn + 1
-    }, () => {
-      // Included to support initial direction. Please remove upon completion
-      console.log(messages)
-    })
+    });
   }
 
   renderButton() {
@@ -66,10 +63,23 @@ class MessageList extends Component {
         id="clear-messages-button" 
         style={{margin: '0 10px'}}
         variant="contained" 
-        onClick={() => { console.log('click!'); }}>
+        onClick={() => { this.setState({ messages: [], orderIn: 0}) }}>
           Clear
       </Button>
     );
+  }
+
+  clearIndividual(orderIn) {
+    let messagesCopy = this.state.messages.slice();
+
+    for(let i = 0; i < messagesCopy.length; i++) {
+      if(messagesCopy[i].orderIn == orderIn) {
+        messagesCopy.splice(i, 1);
+        break;
+      }
+    }
+
+    this.setState({messages: messagesCopy});
   }
 
   render() {
@@ -85,6 +95,7 @@ class MessageList extends Component {
       </div>
         <Table 
           allMessages={this.state.messages} 
+          clearIndividual={this.clearIndividual.bind(this)}
         />
       </>
     );
