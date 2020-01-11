@@ -23,21 +23,39 @@ const useStyles = createUseStyles({
   count: {
     alignSelf: 'flexStart',
     margin: '0',
+  },
+  messageText: {
+    margin: '0'
   }
 });
 
 const useMaterialUI = makeStyles({
   errorMessages: {
     backgroundColor: '#F56236 !important',
-    margin: '5px 0 !important'
+    margin: '5px 0 !important',
+    width: '260px !important',
+    height: '45px !important',
+    display: 'flex !important',
+    justifyContent: 'space-between !important',
+    alignItems: 'flex-start !important',
   },
   warningMessages: {
     backgroundColor: '#FCE788 !important',
-    margin: '5px 0 !important'
+    margin: '5px 0 !important',
+    width: '260px !important',
+    height: '45px !important',
+    display: 'flex !important',
+    justifyContent: 'space-between !important',
+    alignItems: 'flex-start !important',
   },
   infoMessages: {
     backgroundColor: '#88FCA3 !important',
-    margin: '5px 0 !important'
+    margin: '5px 0 !important',
+    width: '260px !important',
+    height: '45px !important',
+    display: 'flex !important',
+    justifyContent: 'space-between !important',
+    alignItems: 'flex-start !important',
   }
 });
 
