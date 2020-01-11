@@ -6,7 +6,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "cypress run"
+    "test": "cypress run",
+    "cypress": "cypress open"
   },
   "author": "Help.com",
   "license": "No license",

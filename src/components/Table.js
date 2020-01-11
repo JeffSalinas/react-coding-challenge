@@ -4,9 +4,10 @@ import ThemeContext from '../ThemeContext';
 
 const Table = ({ allMessages }) => {
   const { classes } = useContext(ThemeContext);
-  const [ errors, setErrors ] = useState([]);
-  const [ warnings, setWarnings ] = useState([]);
-  const [ infos, setInfos ] = useState([]);
+  const [errors, setErrors] = useState([{ message: 'asdf', priority: 1 }]);
+  const [warnings, setWarnings] = useState([{ message: 'asdfasdf', priority: 2 }]);
+  const [infos, setInfos] = useState([{ message: 'asasdf', priority: 3 }]);
+  window.test = {};
 
   useEffect(() => {
     //sort messages

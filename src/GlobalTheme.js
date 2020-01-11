@@ -21,7 +21,16 @@ const useStyles = createUseStyles({
   count: {
     alignSelf: 'flexStart',
     margin: '0',
-  }
+  },
+  errorMessages: {
+    backgroundColor: '#F56236'
+  },
+  warningMessages: {
+    backgroundColor: '#FCE788'
+  },
+  infoMessages: {
+    backgroundColor: '#88FCA3'
+  },
 });
 
 const GlobalTheme = (props) => {
