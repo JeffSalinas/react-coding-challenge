@@ -4,6 +4,7 @@ import Message from './Message.js';
 
 const MessageColumn = ({ codeType, columnID, count, messages }) => {
   const { classes } = useContext(ThemeContext);
+  window.test[columnID] = messages;
 
   return (
     <div id={columnID} className={classes.messagesContainer}>
