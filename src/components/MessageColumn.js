@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import ThemeContext from '../ThemeContext';
 import Message from './Message.js';
 
-const MessageColumn = ({ codeType, columnID, count, messages }) => {
+const MessageColumn = ({ codeType, columnID, count, messages, clearIndividual }) => {
   const { classes } = useContext(ThemeContext);
   window.test[columnID] = messages;
 
@@ -12,7 +12,13 @@ const MessageColumn = ({ codeType, columnID, count, messages }) => {
       <p className={classes.count}>{'Count ' + count}</p>
       {messages.map((el, index) => {
         return (
-          <Message key={index} orderIn={el.orderIn.toString()} message={el} columnID={columnID} />
+          <Message 
+            key={index} 
+            clearIndividual={clearIndividual} 
+            orderIn={el.orderIn.toString()} 
+            message={el} 
+            columnID={columnID} 
+          />
         );
       })}
     </div>
