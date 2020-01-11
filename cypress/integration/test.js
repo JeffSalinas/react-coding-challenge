@@ -22,11 +22,11 @@ describe('React Code Challenge', () => {
   
   describe('Should Have Correct Content', () => {
     it('should only have errors in error column', () => {
-      cy.wait(5000);
+      cy.wait(15000);
       cy.window().its('test').its('type1').each((element) => {
         expect(element.priority).to.equal(1);
       });
-    })
+    });
 
     it('should only have warnings in warning column', () => {
       cy.window().its('test').its('type2').each((element) => {
@@ -43,26 +43,28 @@ describe('React Code Challenge', () => {
     it('should render with all error messages #F56236', () => {
       cy.get('.errorMessages').each((element) => {
         expect(element).to.have.css('background-color', 'rgb(245, 98, 54)');
-      })
+      });
     });
 
     it('should render with all error messages #FCE788', () => {
       cy.get('.warningMessages').each((element) => {
         expect(element).to.have.css('background-color', 'rgb(252, 231, 136)');
-      })
+      });
     });
 
     it('should render with all error messages #88FCA3', () => {
       cy.get('.infoMessages').each((element) => {
         expect(element).to.have.css('background-color', 'rgb(136, 252, 163)');
-      })
+      });
     });
   });
 
   describe('Should have functionality', () => {
     it('should pause messages when Stop Messages button is clicked', () => {
+      cy.get('#start-stop-messages-button').click();
+      cy.wait(3000);
+
       cy.window().its('totalMessages').then((total) => {
-        cy.get('#start-stop-messages-button').click();
         cy.wait(2000);
         cy.window().its('totalMessages').should('equal', total);
       });
@@ -71,8 +73,8 @@ describe('React Code Challenge', () => {
     it('should remove a single cleared item', () => {
       cy.window().its('totalMessages').then((total) => {
         cy.get('#4').click();
-        cy.window().its('totalMessages').should('be.lt', total)
-      })
+        cy.window().its('totalMessages').should('be.lt', total);
+      });
     });
 
     it('should start messages when start messages button is clicked', () => {
@@ -85,7 +87,7 @@ describe('React Code Challenge', () => {
 
     it('should clear all messages on main clear button', () => {
       cy.get('#start-stop-messages-button').click();
-      cy.get('#clear-messages-button').click()
+      cy.get('#clear-messages-button').click();
       cy.window().its('totalMessages').should('equal', 0)
     });
   });

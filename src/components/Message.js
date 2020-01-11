@@ -27,6 +27,6 @@ const Message = ({ message, columnID, orderIn, clearIndividual }) => {
         <p className={classes.messageText}>clear</p>
     </Button>
   );
-}
+};
 
 export default Message;

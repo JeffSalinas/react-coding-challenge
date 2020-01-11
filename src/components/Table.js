@@ -58,6 +58,6 @@ const Table = ({ allMessages, clearIndividual }) => {
       </div>
     </>
   );
-}
+};
 
 export default Table;

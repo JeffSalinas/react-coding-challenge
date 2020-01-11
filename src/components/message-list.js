@@ -11,17 +11,17 @@ class MessageList extends Component {
       messages: [],
       orderIn: 0,
       currentError: false
-    }
+    };
   }
 
   api = new Api({
     messageCallback: (message) => {
-      this.messageCallback(message)
-    },
+      this.messageCallback(message);
+    }
   })
 
   componentDidMount() {
-    this.api.start()
+    this.api.start();
   }
 
   messageCallback(message) {
@@ -35,7 +35,7 @@ class MessageList extends Component {
   }
 
   handleNewMessage(message) {
-    const { messages } = this.state
+    const { messages } = this.state;
     message.orderIn = this.state.orderIn;
 
     this.setState({
@@ -52,7 +52,7 @@ class MessageList extends Component {
     if(!this.state.currentError) {
       this.setState({currentError: message}, () => {
         this.removeIfSame(message.message);
-      })
+      });
     } else {
       const { messages } = this.state
       let oldCurrentError = this.state.currentError;
@@ -67,7 +67,7 @@ class MessageList extends Component {
         currentError: message
       }, () => {
           this.removeIfSame(message.message);
-      })
+      });
     }
   }
 
@@ -133,7 +133,7 @@ class MessageList extends Component {
       return;
     }
 
-    for(let i = 0; i < messagesCopy.length; i++) {
+    for (let i = 0; i < messagesCopy.length; i++) {
       if(messagesCopy[i].orderIn === Number(orderIn)) {
         messagesCopy.splice(i, 1);
         break;
@@ -187,4 +187,4 @@ class MessageList extends Component {
   }
 };
 
-export default MessageList
+export default MessageList;

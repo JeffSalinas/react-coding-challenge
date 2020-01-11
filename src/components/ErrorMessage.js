@@ -12,7 +12,7 @@ const ErrorMessage = ({ message, clearIndividual }) => {
     } else {
       setShortMessage(message.message);
     }
-  }, [message.message])
+  }, [message.message]);
 
   return (
     <Button
@@ -24,6 +24,6 @@ const ErrorMessage = ({ message, clearIndividual }) => {
       <p className={classes.messageText}>Clear</p>
     </Button>
   );
-}
+};
 
 export default ErrorMessage;
