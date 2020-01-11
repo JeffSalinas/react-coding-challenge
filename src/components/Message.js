@@ -12,7 +12,7 @@ const Message = ({ message, columnID, orderIn, clearIndividual }) => {
     } else {
       setShortMessage(message.message);
     }
-  })
+  }, [message.message]);
 
   return (
     <Button 
@@ -27,6 +27,6 @@ const Message = ({ message, columnID, orderIn, clearIndividual }) => {
         <p className={classes.messageText}>clear</p>
     </Button>
   );
-}
+};
 
 export default Message;
