@@ -8,12 +8,13 @@ const useStyles = createUseStyles({
   columnContainer: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   messagesContainer: {
     display: 'flex',
     flexDirection: 'column',
-    margin: '0 10px'
+    margin: '0 10px',
+    width: '260px'
   },
   columnTitle: {
     alignSelf: 'flexStart',
