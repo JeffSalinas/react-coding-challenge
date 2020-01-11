@@ -10,8 +10,25 @@ const Table = ({ allMessages }) => {
   window.test = {};
 
   useEffect(() => {
-    //sort messages
-  })
+    let tempError = [];
+    let tempWarning = [];
+    let tempInfo = [];
+    let tempAllMessages = allMessages.slice();
+
+    tempAllMessages.sort((a, b) => {
+      return b.orderIn - a.orderIn;
+    })
+
+    tempAllMessages.forEach(el => {
+      if(el.priority === 1) tempError.push(el); 
+      if(el.priority === 2) tempWarning.push(el); 
+      if(el.priority === 3) tempInfo.push(el);
+    })
+
+    setErrors(tempError);
+    setWarnings(tempWarning);
+    setInfos(tempInfo);
+  }, [allMessages])
 
   return (
     <>
