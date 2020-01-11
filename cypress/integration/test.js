@@ -22,7 +22,7 @@ describe('React Code Challenge', () => {
   
   describe('Should Have Correct Content', () => {
     it('should only have errors in error column', () => {
-      cy.wait(15000);
+      cy.wait(1500);
       cy.window().its('test').its('type1').each((element) => {
         expect(element.priority).to.equal(1);
       });
@@ -57,5 +57,36 @@ describe('React Code Challenge', () => {
         expect(element).to.have.css('background-color', 'rgb(136, 252, 163)');
       })
     });
+  });
+
+  describe('Should have functionality', () => {
+    it('should pause messages when Stop Messages button is clicked', () => {
+      cy.window().its('totalMessages').then((total) => {
+        cy.get('#start-stop-messages-button').click();
+        cy.wait(2000);
+        cy.window().its('totalMessages').should('equal', total);
+      });
+    });
+
+    it('should remove a single cleared item', () => {
+      cy.window().its('totalMessages').then((total) => {
+        cy.get('#4').click();
+        cy.window().its('totalMessages').should('be.lt', total)
+      })
+    })
+
+    it('should start messages when start messages button is clicked', () => {
+      cy.window().its('totalMessages').then((total) => {
+        cy.get('#start-stop-messages-button').click();
+        cy.wait(2000);
+        cy.window().its('totalMessages').should('be.gt', total);
+      });
+    });
+
+    it('should clear all messages on main clear button', () => {
+      cy.get('#start-stop-messages-button').click();
+      cy.get('#clear-messages-button').click()
+      cy.window().its('totalMessages').should('equal', 0)
+    })
   });
 });
