@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
 import Api from '../api';
-import MessageColumn from './MessageColumn';
+import Table from './Table';
 
 class MessageList extends Component {
   constructor(...args) {
@@ -66,18 +66,14 @@ class MessageList extends Component {
     );
   }
 
-
-
   render() {
     return (
       <>
         {this.renderButton()}
         {this.clearButton()}
-        <div>  
-          <MessageColumn columnID="type1"/>
-          <MessageColumn columnID="type2"/>
-          <MessageColumn columnID="type3"/>
-        </div>
+        <Table 
+          allMessages={this.state.messages} 
+        />
       </>
     );
   }

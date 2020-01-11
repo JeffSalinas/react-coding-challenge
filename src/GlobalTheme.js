@@ -6,7 +6,7 @@ const useStyles = createUseStyles({
   columnContainer: {
     color: 'red'
   }
-})
+});
 
 const GlobalTheme = (props) => {
   const makeStyles = useStyles();
