@@ -12,7 +12,7 @@ const MessageColumn = ({ codeType, columnID, count, messages }) => {
       <p className={classes.count}>{'Count ' + count}</p>
       {messages.map((el, index) => {
         return (
-          <Message key={index} message={el} columnID={columnID} />
+          <Message key={index} orderIn={el.orderIn.toString()} message={el} columnID={columnID} />
         );
       })}
     </div>

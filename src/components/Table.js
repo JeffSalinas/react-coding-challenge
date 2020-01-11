@@ -4,10 +4,11 @@ import ThemeContext from '../ThemeContext';
 
 const Table = ({ allMessages }) => {
   const { classes } = useContext(ThemeContext);
-  const [errors, setErrors] = useState([{ message: 'asdf', priority: 1 }]);
-  const [warnings, setWarnings] = useState([{ message: 'asdfasdf', priority: 2 }]);
-  const [infos, setInfos] = useState([{ message: 'asasdf', priority: 3 }]);
+  const [errors, setErrors] = useState([{ message: '', priority: 1, orderIn: 0 }]);
+  const [warnings, setWarnings] = useState([{ message: 'asdfasdf', priority: 2, orderIn: 0 }]);
+  const [infos, setInfos] = useState([{ message: 'asasdf', priority: 3, orderIn: 0 }]);
   window.test = {};
+  window.totalMessages = allMessages.length;
 
   useEffect(() => {
     let tempError = [];
