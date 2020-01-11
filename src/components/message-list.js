@@ -8,6 +8,7 @@ class MessageList extends Component {
     super(...args)
     this.state = {
       messages: [],
+      orderIn: 0
     }
   }
 
@@ -23,11 +24,14 @@ class MessageList extends Component {
 
   messageCallback(message) {
     const { messages } = this.state
+    message.orderIn = this.state.orderIn;
+  
     this.setState({
       messages: [
         ...messages.slice(),
         message,
       ],
+      orderIn: this.state.orderIn + 1
     }, () => {
       // Included to support initial direction. Please remove upon completion
       console.log(messages)
