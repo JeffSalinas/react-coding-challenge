@@ -12,7 +12,7 @@ const ErrorMessage = ({ message, clearIndividual }) => {
     } else {
       setShortMessage(message.message);
     }
-  })
+  }, [message.message])
 
   return (
     <Button

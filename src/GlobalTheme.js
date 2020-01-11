@@ -2,7 +2,6 @@ import React from 'react';
 import ThemeContext from './ThemeContext';
 import { createUseStyles } from 'react-jss'
 import { makeStyles } from '@material-ui/styles';
-import color from '@material-ui/core/colors/amber';
 
 const useStyles = createUseStyles({
   columnContainer: {

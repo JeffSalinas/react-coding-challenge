@@ -12,7 +12,7 @@ const Message = ({ message, columnID, orderIn, clearIndividual }) => {
     } else {
       setShortMessage(message.message);
     }
-  })
+  }, [message.message]);
 
   return (
     <Button 
