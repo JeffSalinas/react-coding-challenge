@@ -39,6 +39,7 @@ class MessageList extends Component {
     return (
       <Button
         id="start-stop-messages-button"
+        style={{ margin: '0 10px' }}
         variant="contained"
         onClick={() => {
           if (isApiStarted) {
@@ -59,6 +60,7 @@ class MessageList extends Component {
     return (
       <Button 
         id="clear-messages-button" 
+        style={{margin: '0 10px'}}
         variant="contained" 
         onClick={() => { console.log('click!'); }}>
           Clear
@@ -69,8 +71,14 @@ class MessageList extends Component {
   render() {
     return (
       <>
+        <div style={{
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'center',
+          margin: '0 0 20px 0'}}>
         {this.renderButton()}
         {this.clearButton()}
+      </div>
         <Table 
           allMessages={this.state.messages} 
         />

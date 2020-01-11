@@ -4,7 +4,23 @@ import { createUseStyles } from 'react-jss'
 
 const useStyles = createUseStyles({
   columnContainer: {
-    color: 'red'
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+  messagesContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    margin: '0 10px'
+  },
+  columnTitle: {
+    alignSelf: 'flexStart',
+    margin: '0',
+    fontWeight: 'bold'
+  },
+  count: {
+    alignSelf: 'flexStart',
+    margin: '0',
   }
 });
 
