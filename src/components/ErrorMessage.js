@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import ThemeContext from '../ThemeContext';
 import Button from '@material-ui/core/Button';
 
-const ErrorMessage = ({ message }) => {
+const ErrorMessage = ({ message, clearIndividual }) => {
   const { materialUI, classes } = useContext(ThemeContext);
   const [shortMessage, setShortMessage] = useState('');
 
@@ -17,9 +17,11 @@ const ErrorMessage = ({ message }) => {
   return (
     <Button
       className={materialUI.errorMessages + ' errorMessages'}
-      variant="contained">
-      <p className={classes.messageText}>{'Error: '}</p>
+      variant="contained"
+      onClick={() => clearIndividual('newError')}
+      >
       <p title={message.message} className={classes.messageText}>{shortMessage}</p>
+      <p className={classes.messageText}>Clear</p>
     </Button>
   );
 }

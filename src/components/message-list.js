@@ -118,7 +118,7 @@ class MessageList extends Component {
         id="clear-messages-button" 
         style={{margin: '0 10px'}}
         variant="contained" 
-        onClick={() => { this.setState({ messages: [], orderIn: 0}) }}>
+        onClick={() => { this.setState({ messages: [], orderIn: 0, currentError: false}) }}>
           Clear
       </Button>
     );
@@ -127,8 +127,14 @@ class MessageList extends Component {
   clearIndividual(orderIn) {
     let messagesCopy = this.state.messages.slice();
 
+    if (orderIn === 'newError') {
+
+      this.setState({currentError: false});
+      return;
+    }
+
     for(let i = 0; i < messagesCopy.length; i++) {
-      if(messagesCopy[i].orderIn == orderIn) {
+      if(messagesCopy[i].orderIn === Number(orderIn)) {
         messagesCopy.splice(i, 1);
         break;
       }
@@ -156,7 +162,11 @@ class MessageList extends Component {
             border: '1px solid #E0E0E0', 
             borderRadius: '5px'}}
           >
-            {!!this.state.currentError && <ErrorMessage message={this.state.currentError}/>}
+            {!!this.state.currentError && 
+              <ErrorMessage 
+                message={this.state.currentError}
+                clearIndividual={this.clearIndividual.bind(this)}
+              />}
           </div>
           <div style={{
             display: 'flex',
