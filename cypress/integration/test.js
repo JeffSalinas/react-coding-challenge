@@ -18,26 +18,26 @@ describe('React Code Challenge', () => {
       cy.get('#type2').should('exist');
       cy.get('#type3').should('exist');
     });
-
-    it('should only have errors in error column', () => {
-      cy.window().its('test').its('type1').each((element) => {
-        expect(element.priority).to.equal(1)
-      })
-    })
   });
   
   describe('Should Have Correct Content', () => {
+    it('should only have errors in error column', () => {
+      cy.wait(15000);
+      cy.window().its('test').its('type1').each((element) => {
+        expect(element.priority).to.equal(1);
+      });
+    })
+
     it('should only have warnings in warning column', () => {
-      cy.visit('http://localhost:3000/');
       cy.window().its('test').its('type2').each((element) => {
-        expect(element.priority).to.equal(2)
-      })
+        expect(element.priority).to.equal(2);
+      });
     });
   
     it('should only have info in info column', () => {
       cy.window().its('test').its('type3').each((element) => {
-        expect(element.priority).to.equal(3)
-      })
+        expect(element.priority).to.equal(3);
+      });
     });
 
     it('should render with all error messages #F56236', () => {
